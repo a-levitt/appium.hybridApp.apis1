@@ -42,4 +42,21 @@ public class DriverInitialization {
 
         return new AndroidDriver(url, options);
     }
+
+    public static AppiumDriver initializeBrowserDriver() throws MalformedURLException {
+        UiAutomator2Options options = new UiAutomator2Options()
+                //.setAvd("Pixel_8_virt")
+                //.setAvdLaunchTimeout(Duration.ofSeconds(180))
+                .setUdid("emulator-5554")
+                .setUnlockType("pin")
+                .setUnlockKey("1111")
+                //.setAppPackage("io.appium.android.apis")
+                //.setAppActivity("io.appium.android.apis.ApiDemos")
+                .withBrowserName("chrome")
+                ;
+
+        URL url = new URL("http://0.0.0.0:4723");
+
+        return new AndroidDriver(url, options);
+    }
 }
